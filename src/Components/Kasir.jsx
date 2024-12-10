@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "tailwindcss/tailwind.css";
+import pp from "../assets/qr.avif";
 
 
 const Modal = ({ isOpen, onClose, children }) => {
@@ -72,7 +73,7 @@ const Kasir = () => {
 
   return (
     <div className="flex flex-col h-screen">
-      {/* Header */}
+      
       <header className="bg-orange-500 text-white flex justify-around py-4">
         <div className="font-bold tab-active border-b-4 border-white">KASIR</div>
         <a className="font-bold" href="Tambahitem">
@@ -83,14 +84,14 @@ const Kasir = () => {
         </a>
       </header>
 
-      {/* Main */}
+      
       <main className="flex-1 overflow-y-auto">
         {items.map((item, index) => (
           <Item key={index} item={item} onStockChange={handleStockChange} />
         ))}
       </main>
 
-      {/* Footer */}
+      
       <footer className="bg-orange-500 text-white py-4 px-6 flex justify-between items-center">
         <div className="font-bold">TOTAL SEKARANG</div>
         <i
@@ -99,7 +100,7 @@ const Kasir = () => {
         ></i>
       </footer>
 
-      {/* Payment Modal */}
+      
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
           <div className="text-center">
@@ -144,7 +145,7 @@ const Kasir = () => {
         </Modal>
       )}
 
-      {/* Success Modal */}
+      
       <Modal isOpen={isSuccessModalOpen} onClose={() => setSuccessModalOpen(false)}>
         <h1
           className="text-orange-500 text-3xl font-bold mb-4"
@@ -160,11 +161,11 @@ const Kasir = () => {
         </button>
       </Modal>
 
-      {/* QR Code Modal */}
+      
       <Modal isOpen={isQRModalOpen} onClose={() => setQRModalOpen(false)}>
         <h1 className="text-orange-500 text-2xl font-bold mb-4">SCAN BARCODE</h1>
         <img
-          src="https://placehold.co/300x300"
+          src={pp}
           alt="QR code for scanning"
           className="w-64 h-64"
         />
